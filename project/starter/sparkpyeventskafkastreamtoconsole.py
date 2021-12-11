@@ -5,6 +5,7 @@ from pyspark.sql.types import StructField, StructType, StringType, BooleanType, 
 # TO-DO: using the spark application object, read a streaming dataframe from the Kafka topic stedi-events as the source
 # Be sure to specify the option that reads all the events from the topic including those that were published before you started the spark stream
 spark = SparkSession.builder.appName("my-app").getOrCreate()
+spark.sparkContext.setLogLevel("WARN")
 
 stediDF = spark\
     .readStream\
